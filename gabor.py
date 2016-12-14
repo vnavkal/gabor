@@ -30,8 +30,14 @@ def get_best_filter(rescaling_factor):
     theta = .3 * np.pi
     sigma_x = 2 * scale
     sigma_y = 3 * scale
-    kernel_for_left_lane = gabor_kernel(0.2, theta=theta, sigma_x=sigma_x, sigma_y=sigma_y)
-    kernel_for_right_lane = gabor_kernel(0.2, theta=-theta, sigma_x=sigma_x, sigma_y=sigma_y)
+    kernel_for_left_lane = gabor_kernel(pixel_frequency,
+                                        theta=theta,
+                                        sigma_x=sigma_x,
+                                        sigma_y=sigma_y)
+    kernel_for_right_lane = gabor_kernel(pixel_frequency,
+                                         theta=-theta,
+                                         sigma_x=sigma_x,
+                                         sigma_y=sigma_y)
     return .5 * (kernel_for_left_lane + kernel_for_right_lane)
 
 
